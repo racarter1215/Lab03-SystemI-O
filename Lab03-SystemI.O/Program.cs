@@ -107,14 +107,15 @@ namespace Lab03Challenge1
             return average;
         }
         /// <summary>
-        /// sdsdf
+        /// This method creates the diamond shape in the terminal
         /// </summary>
         /// <param name="rowLength"></param>
         public static void CreateDiamondDisplay(int rowLength)
-        {
+        {//below are named variables used within the code logic
             int center = ((rowLength + 1) / 2);
             string space = " ";
             char star = '*';
+            //the first "greater" for loop creates the top of the diamond
             for (int i = 1; i <= center; i++)
             {
                 for (int j = 1; j <= (center - i); j++)
@@ -127,7 +128,7 @@ namespace Lab03Challenge1
                 }
                 Console.WriteLine();
             }
-
+            //the bottom "greater" for loop creates the bottom half
             for (int i = center - 1; i > 0; i--)
             {
                 for (int j = 1; j <= (center - i); j++)
@@ -141,7 +142,11 @@ namespace Lab03Challenge1
                 Console.WriteLine();
             }
         }
-
+        /// <summary>
+        /// This method 
+        /// </summary>
+        /// <param name="totalNumberArray"></param>
+        /// <returns></returns>
         public static int ArrayWithoutSortingIt(int[] totalNumberArray)
         {
             int numberCount = 0;

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Reflection.Metadata.Ecma335;
+using System.IO;
 
 namespace Lab03Challenge1
 {
@@ -12,6 +12,7 @@ namespace Lab03Challenge1
     /// <param name="args"></param>
         static void Main(string[] args)
         {
+            
             int firstMethod = MultiplicationMethod("4 19 50");
             Console.WriteLine($"Here's the product for the numbers: {firstMethod}");
             Console.WriteLine("Enter a number between 2 and 10");
@@ -50,7 +51,23 @@ namespace Lab03Challenge1
             int result = MaximumValue(genericArray);
             Console.WriteLine($"The maximum result is {result}");
             
-            
+            EnterWordSaveToFile();
+            ListTestFileWords();
+            DeleteText();
+            Console.WriteLine("Please write words to make a sentence");
+            string userInput = Console.ReadLine();
+            string[] userSentence = InputSentence(userInput);
+            string output = "";
+            for (int i = 0; i < userSentence.Length; i++)
+            {
+                output += userSentence[i];
+            }
+            Console.WriteLine(output);
+
+
+
+
+
 
         }
         /// <summary>
@@ -167,6 +184,65 @@ namespace Lab03Challenge1
                 }
             }
             return largestNumber;
+        }
+
+        public static void EnterWordSaveToFile()
+        {
+            Console.WriteLine("Please write a word");
+            string[] inputArray = new string[1];
+            string userInput = Console.ReadLine();
+            inputArray[0] = userInput;
+            string textPath = "../../Words.txt";
+            File.AppendAllLines(textPath, inputArray);
+
+        }
+
+        public static void ListTestFileWords()
+        {
+            string filePath = "../../Words.txt";
+            string[] lineArray = File.ReadAllLines(filePath);
+            Console.WriteLine(String.Join('\n', lineArray));
+        }
+
+        public static void DeleteText()
+        {
+            string filePath = "../../Words.txt";
+            string newFilePath = "../../New.txt";
+
+            Console.WriteLine("Please write the word to be deleted");
+            string userInput = Console.ReadLine();
+            string[] readArray = File.ReadAllLines(filePath);
+            string[] writeArray = new string[readArray.Length - 1];
+            int counter = 0;
+            for (int i = 0; i < readArray.Length; i++)
+            {
+                if(readArray[i] != userInput)
+                {
+                    writeArray[counter] = readArray[i];
+                    counter++;
+                }
+            }
+            File.WriteAllLines(newFilePath, writeArray);
+            File.Delete(filePath);
+            File.Move(newFilePath, filePath);
+        }
+
+        public static string[] InputSentence(string userInput)
+        {
+            string[] userSentence = userInput.Split(" ");
+            string[] count = new string[userSentence.Length];
+            for (int i = 0; i < userSentence.Length; i++)
+            {
+                if (userSentence.Length - 1 == i)
+                {
+                    count[i] += $" {userSentence[i]}: {userSentence[i].Length}";
+                }
+                else
+                {
+                    count[i] += $" {userSentence[i]}: {userSentence[i].Length},";
+                }
+            }
+            return count;
         }
     }
 }

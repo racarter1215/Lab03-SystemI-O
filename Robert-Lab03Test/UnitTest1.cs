@@ -6,7 +6,9 @@ namespace Lab03Test1
 
 {
     public class UnitTest1
-    {
+    {/// <summary>
+    /// this tests that if you input a string you get a 0
+    /// </summary>
         [Fact]
         public void ReturnZeroTest()
         {
@@ -18,6 +20,9 @@ namespace Lab03Test1
             //Assert
             Assert.Equal(0, outputFromMethod);
         }
+        /// <summary>
+        /// this tests if given 3 values that they multiply correctly
+        /// </summary>
         [Fact]
         public void ThreeValuesProductTest()
         {
@@ -28,6 +33,11 @@ namespace Lab03Test1
             //Assert
             Assert.Equal(24, output);
         }
+        /// <summary>
+        /// this tests several types of cases to ensure that the product comes out as expected
+        /// </summary>
+        /// <param name="numbers"></param>
+        /// <param name="product"></param>
         [Theory]
         [InlineData("2 4 5 6", 40)]
         [InlineData("1 1 1", 1)]
@@ -44,7 +54,11 @@ namespace Lab03Test1
             //Assert
             Assert.Equal(product, result);
         }
-
+        /// <summary>
+        /// this tests if an average of all values can be found using several different sets of values in arrays
+        /// </summary>
+        /// <param name="intArrayTest"></param>
+        /// <param name="average"></param>
         [Theory]
         [InlineData(new int[] { 1 }, 1)]
         [InlineData(new int[] { 1, 2, 6 }, 3)]
@@ -59,7 +73,12 @@ namespace Lab03Test1
             //Assert
             Assert.Equal(expectedOutcome, output);
         }
-
+        /// <summary>
+        /// this tests if the most common number in an array can be returned and if one isn't most common or tied with another,
+        /// the first number listed
+        /// </summary>
+        /// <param name="arrayTest"></param>
+        /// <param name="biggestNumber"></param>
         [Theory]
         [InlineData(new int[] { 5, 5, 5, 5, 5, 5, 5, 5 }, 5)]
         [InlineData(new int[] { 4, 5, 6, 6, 7 }, 6)]
@@ -75,7 +94,11 @@ namespace Lab03Test1
             //Assert
             Assert.Equal(biggestNumber, output);
         }
-
+        /// <summary>
+        /// this tests the method that finds the largest number in an array using several variant arrays
+        /// </summary>
+        /// <param name="genericArray"></param>
+        /// <param name="largestNumber"></param>
         [Theory]
         [InlineData(new int[] { 1, 4, 98, -310 }, 98)]
         [InlineData(new int[] { 2, 2, 2, 2, 2 }, 2)]

@@ -143,23 +143,24 @@ namespace Lab03Challenge1
             }
         }
         /// <summary>
-        /// This method 
+        /// This method sorts and array without using .sort() and returns the largest number in the array
         /// </summary>
         /// <param name="totalNumberArray"></param>
         /// <returns></returns>
         public static int ArrayWithoutSortingIt(int[] totalNumberArray)
-        {
+        {//below are the variable declarations for the code logic
             int numberCount = 0;
             int LargestNumberCount = 0;
             int firstNumberInArray = totalNumberArray[0];
             int numbersIteratedThrough = totalNumberArray[0];
+            //the outer for loop goes through the length of the array
             for (int i = 0; i < totalNumberArray.Length; i++)
             {
                 numberCount = 0;
                 for (int j = 0; j < totalNumberArray.Length; j++)
                 {
                     if (totalNumberArray[i] == totalNumberArray[j])
-                    {
+                    {//this adds one to the numberCount
                         numberCount += 1;
                     }
                     if (LargestNumberCount < numberCount)
@@ -171,10 +172,15 @@ namespace Lab03Challenge1
             }
             return firstNumberInArray;
         }
-
+        /// <summary>
+        /// This method finds the largest value in the array
+        /// </summary>
+        /// <param name="genericArray"></param>
+        /// <returns></returns>
         public static int MaximumValue(int[] genericArray)
         {
             int largestNumber = genericArray[0];
+            //this for loop looks for the most recent number and compares it to the next, over and over again, until the biggest one remains.
             for (int i = 0; i < genericArray.Length; i++)
             {
                 if (genericArray[i] > largestNumber)

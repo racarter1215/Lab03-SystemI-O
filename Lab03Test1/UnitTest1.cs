@@ -28,7 +28,7 @@ namespace Lab03Test1
             Assert.Equal(24, output);
         }
         [Theory]
-        [InlineData("2 4 5 6", 240)]
+        [InlineData("2 4 1", 8)]
         [InlineData("1 1 1", 1)]
         [InlineData("dark tower 5", 5)]
         [InlineData("raven guard", 0)]
@@ -87,5 +87,43 @@ namespace Lab03Test1
             //Assert
             Assert.Equal(expectedOutcome, output);
         }
+
+        [Fact]
+
+        public void ReturnsArrayWithCorrectValues()
+        {
+            //Arrange
+            string[] test = new string[]
+            {
+                " This: 4,",
+                " Is: 2,",
+                " A: 1,",
+                " Test: 4"
+            };
+            //Act
+            string[] answer = InputSentence("This Is A Test");
+            //Assert
+            Assert.Equal(test, answer);
+        }
+        [Fact]
+
+        public void ReturnsTheRightArray()
+        {
+            //Arrange
+            string[] test = new string[]
+            {
+                " Please: 5,",
+                " Let: 3,",
+                " This: 4,",
+                " Work: 4"
+            };
+            //Act
+            string[] answer = InputSentence("Please Let This Work");
+            Type testa = typeof(string[]);
+            Type testb = answer.GetType();
+            //Assert
+            Assert.Equal(testa, testb);
+        }
+
     }
 }

@@ -21,7 +21,7 @@
 ##### Select the Program.cs document
 
 ### Application WhiteBoard
-![App Image 1](../assets/whiteboard.png)
+![App Image 1](./assets/whiteboard.png)
 
 
 #### Change Log

@@ -71,10 +71,10 @@ namespace Lab03Challenge1
 
         }
         /// <summary>
-        /// The following code handles challenge 1, where 
+        /// The following code handles challenge 1, where a user is asked for 3 numbers, and they are multiplied together
         /// </summary>
         /// <param name="input"></param>
-        /// <returns></returns>
+        /// <returns>the product of the input</returns>
         public static int MultiplicationMethod(string input)
         {
             string[] stringArray = input.Split(' ');
@@ -104,7 +104,11 @@ namespace Lab03Challenge1
             }
             return product;
         }
-
+        /// <summary>
+        /// below method asks a user to pick a number, then give a set of numbers equal to that first number, then an average of those numbers is given
+        /// </summary>
+        /// <param name="userArray"></param>
+        /// <returns>an average of the second sets of user input</returns>
         public static double PickRandomNumberThenGetAverage(int[] userArray)
         {
             int sum = 0;
@@ -115,7 +119,10 @@ namespace Lab03Challenge1
             double average = (double) sum / (double) userArray.Length;
             return average; 
         }
-
+        /// <summary>
+        /// below is a method that, using the "*" character, makes a diamond
+        /// </summary>
+        /// <param name="rowLength">it outputs a diamond shape</param>
         public static void CreateDiamondDisplay(int rowLength)
         {
             int center = ((rowLength + 1) / 2);
@@ -147,7 +154,11 @@ namespace Lab03Challenge1
                 Console.WriteLine();
             }
         }
-
+        /// <summary>
+        /// the below method returns a sorted array without using the .Sort()
+        /// </summary>
+        /// <param name="totalNumberArray"></param>
+        /// <returns>a new sorted array</returns>
         public static int ArrayWithoutSortingIt(int[] totalNumberArray)
         {
             int numberCount = 0;
@@ -172,7 +183,11 @@ namespace Lab03Challenge1
             }
                 return firstNumberInArray;
         }
-
+        /// <summary>
+        /// below is a method that displays the largest value in an array
+        /// </summary>
+        /// <param name="genericArray"></param>
+        /// <returns>an integer which represents the largest number in the array</returns>
         public static int MaximumValue(int[] genericArray)
         {
             int largestNumber = genericArray[0];
@@ -185,7 +200,9 @@ namespace Lab03Challenge1
             }
             return largestNumber;
         }
-
+        /// <summary>
+        /// below is a method that allows a user to enter a word into a text document
+        /// </summary>
         public static void EnterWordSaveToFile()
         {
             Console.WriteLine("Please write a word");
@@ -196,14 +213,18 @@ namespace Lab03Challenge1
             File.AppendAllLines(textPath, inputArray);
 
         }
-
+        /// <summary>
+        /// the below method returns a list of all words in the text document
+        /// </summary>
         public static void ListTestFileWords()
         {
             string filePath = "../../Words.txt";
             string[] lineArray = File.ReadAllLines(filePath);
             Console.WriteLine(String.Join('\n', lineArray));
         }
-
+        /// <summary>
+        /// the below method deletes a line of text from the text document
+        /// </summary>
         public static void DeleteText()
         {
             string filePath = "../../Words.txt";
@@ -226,7 +247,11 @@ namespace Lab03Challenge1
             File.Delete(filePath);
             File.Move(newFilePath, filePath);
         }
-
+        /// <summary>
+        /// the below method allows a user to input a sentence to be viewed on the text document
+        /// </summary>
+        /// <param name="userInput"></param>
+        /// <returns>a sentence of strings, with a number value to their length</returns>
         public static string[] InputSentence(string userInput)
         {
             string[] userSentence = userInput.Split(" ");

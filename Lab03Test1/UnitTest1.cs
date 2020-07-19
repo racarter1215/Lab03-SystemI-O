@@ -5,7 +5,9 @@ using static Lab03Challenge1.Program;
 namespace Lab03Test1
 {
     public class UnitTest1
-    {
+    {/// <summary>
+    /// this test checks if it returns a zero
+    /// </summary>
         [Fact]
         public void ReturnZeroTest()
         {
@@ -17,6 +19,9 @@ namespace Lab03Test1
             //Assert
             Assert.Equal(0, outputFromMethod);
         }
+        /// <summary>
+        /// this checks if the multiplication method works with 3 values
+        /// </summary>
         [Fact]
         public void ThreeValuesProductTest()
         {
@@ -27,6 +32,11 @@ namespace Lab03Test1
             //Assert
             Assert.Equal(24, output);
         }
+        /// <summary>
+        /// below tests what happens when lots of different values go through multiplication method
+        /// </summary>
+        /// <param name="numbers"></param>
+        /// <param name="product"></param>
         [Theory]
         [InlineData("2 4 1", 8)]
         [InlineData("1 1 1", 1)]
@@ -43,7 +53,11 @@ namespace Lab03Test1
             //Assert
             Assert.Equal(product, result);
         }
-
+        /// <summary>
+        /// below is a test that verifies an array of numbers can return an average
+        /// </summary>
+        /// <param name="intArrayTest"></param>
+        /// <param name="average"></param>
         [Theory]
         [InlineData(new int[] { 1 }, 1)]
         [InlineData(new int[] { 1, 2, 6 }, 3)]
@@ -58,7 +72,11 @@ namespace Lab03Test1
             //Assert
             Assert.Equal(expectedOutcome, output);
         }
-
+        /// <summary>
+        /// below is a test of pulling the biggest number from an array
+        /// </summary>
+        /// <param name="arrayTest"></param>
+        /// <param name="biggestNumber"></param>
         [Theory]
         [InlineData(new int[] {5, 5, 5, 5, 5, 5, 5, 5}, 5)]
         [InlineData(new int[] {4, 5, 6, 6, 7}, 6)]
@@ -74,7 +92,11 @@ namespace Lab03Test1
             //Assert
             Assert.Equal(biggestNumber, output);
         }
-
+        /// <summary>
+        /// below tests the max number with edge cases like negative numbers
+        /// </summary>
+        /// <param name="genericArray"></param>
+        /// <param name="largestNumber"></param>
         [Theory]
         [InlineData(new int[] {1, 4, 98, -310}, 98)]
         [InlineData(new int[] { 2, 2, 2, 2, 2}, 2)]
@@ -87,7 +109,9 @@ namespace Lab03Test1
             //Assert
             Assert.Equal(expectedOutcome, output);
         }
-
+        /// <summary>
+        /// below verifies that the returned array of strings is the same as expected
+        /// </summary>
         [Fact]
 
         public void ReturnsArrayWithCorrectValues()
@@ -105,8 +129,11 @@ namespace Lab03Test1
             //Assert
             Assert.Equal(test, answer);
         }
+        /// <summary>
+        /// below is a test that verifies the correct array of strings is returned
+        /// </summary>
         [Fact]
-
+       
         public void ReturnsTheRightArray()
         {
             //Arrange

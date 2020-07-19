@@ -1,5 +1,5 @@
 using System;
-using System.Reflection.Metadata.Ecma335;
+using SystemIO;
 
 namespace Lab03Challenge1
 {
@@ -189,6 +189,15 @@ namespace Lab03Challenge1
                 }
             }
             return largestNumber;
+        }
+                public static void EnterWordSaveToFile()
+        {
+            Console.WriteLine("Please write a word");
+            string[] inputArray = new string[1];
+            string userInput = Console.ReadLine();
+            inputArray[0] = userInput;
+            string textPath = "../../Words.txt";
+            File.AppendAllLines(textPath, inputArray);
         }
     }
 }
